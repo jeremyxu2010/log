@@ -138,7 +138,7 @@ func (l *Logger) output(level, calldepth int, s string) error {
 
 func (l *Logger) Err(level, calldepth int, err error) error {
 	if err != nil && level >= l.level {
-		return l.output(level, calldepth, err.Error())
+		return l.output(level, calldepth, fmt.Sprintf("%+v", err))
 	}
 	return nil
 }
